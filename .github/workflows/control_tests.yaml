@@ -1,6 +1,10 @@
 name: Pytest & flake8 control Push
 on: push
 
+concurrency:
+  group: pytest-flake8-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   qa:
     name: Check tests
